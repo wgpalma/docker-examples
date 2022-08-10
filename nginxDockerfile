@@ -1,0 +1,28 @@
+FROM nginx
+
+
+COPY index.html /usr/share/nginx/html
+
+ENV archivo docker
+
+WORKDIR /usr/share/nginx/html 
+
+RUN echo "$archivo" > ./env.html
+
+EXPOSE 80
+
+LABEL version=1
+
+USER wilson
+
+RUN echo "yo soy $(whoami)" > /tmp/yo.html
+
+USER root
+
+RUN cp /tmp/yo.html ./yo.html
+
+VOLUME var/log/nginx
+
+
+
+CMD nginx -g 'daemon off;

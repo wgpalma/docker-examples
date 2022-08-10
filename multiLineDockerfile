@@ -1,0 +1,19 @@
+
+#docker build -t test -f myFile .
+#docker images -f dangling=true
+#docker rmi id
+#docker images -f dangling=true -q | xargs docker rmi -f
+
+
+FROM nginx
+
+RUN echo "1" >> /usr/share/nginx/html/test.txt
+RUN echo "2" >> /usr/share/nginx/html/test.txt
+RUN echo "2" >> /usr/share/nginx/html/test.txt
+
+RUN \
+echo "1" >> /usr/share/nginx/html/test1.txt && \
+echo "2" >> /usr/share/nginx/html/test1.txt && \
+echo "2" >> /usr/share/nginx/html/test1.txt
+
+RUN echo "1" > /usr/share/nginx/html/index.html
