@@ -13,7 +13,7 @@ for example:
 
 or you can ommit the tag:
 
-`docker pull nginx`
+`docker pull nginx ` 
 
   *note: by default tag is latest*
 
